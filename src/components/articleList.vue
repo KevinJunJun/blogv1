@@ -29,10 +29,6 @@
                 //     title: "title1",
                 //     abstract: "The examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property namesThe examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property names",
                 //     id: 1
-                // },{
-                //     title: "title1",
-                //     abstract: "The examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property namesThe examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property names",
-                //     id: 2
                 // }
                 ]
             }
@@ -43,8 +39,8 @@
             myHeader
         },
         created() {
-            this.$http.get('/api/getArticleList').then((res) => {
-                this.articles = res.body;
+            this.$http.get('/api/getArticleList.json').then((res) => {
+                this.articles = res.body.result;
             }, (err) => {alert("getArticleList fail!")});
         }
     }

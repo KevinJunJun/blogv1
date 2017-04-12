@@ -7,7 +7,7 @@ const api = require('./api.js');
 const db = require('./db.js');
 const app = express();
 
-app.set('port', (process.env.port || 8080));
+app.set('port', (process.env.port || 8888));
 app.use(morgan('dev'));
 app.use('/static', express.static(path.resolve(__dirname,'../dist/static')));
 app.use(api);
