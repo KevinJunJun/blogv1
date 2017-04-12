@@ -3,10 +3,11 @@
         <my-header></my-header>
             <div class="content">
                 <ul class="articles-ul">
-                    <li v-for="article in articles" class="article-li">
-                        <router-link :to="'/article-detail/'+ article.id">
+
+                    <li v-if="articles.length > 0" v-for="article in articles" class="article-li">
+                        <router-link :to="{path: '/article-detail', query: {id:article._id}}">
                             <h3>{{article.title}}</h3>
-                            <p>{{article.abstract}}</p>
+                            <p>{{article.content}}</p>
                         </router-link>
 
                     </li>
@@ -21,59 +22,30 @@
     import myHeader from './common/myHeader.vue'
     import myFooter from './common/myFooter.vue'
     export default {
-        // data() {
-        //     return {
-        //         articles: [{
-        //             title: "title1",
-        //             abstract: "The examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property namesThe examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property names",
-        //             id: 1
-        //         },{
-        //             title: "title1",
-        //             abstract: "The examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property namesThe examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property names",
-        //             id: 2
-        //         },{
-        //             title: "title1",
-        //             abstract: "The examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property namesThe examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property names",
-        //             id: 3
-        //         },{
-        //             title: "title1",
-        //             abstract: "The examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property namesThe examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property names",
-        //             id: 4
-        //         },{
-        //             title: "title1",
-        //             abstract: "The examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property namesThe examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property names",
-        //             id: 1
-        //         },{
-        //             title: "title1",
-        //             abstract: "The examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property namesThe examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property names",
-        //             id: 1
-        //         },{
-        //             title: "title1",
-        //             abstract: "The examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property namesThe examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property names",
-        //             id: 1
-        //         },{
-        //             title: "title1",
-        //             abstract: "The examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property namesThe examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property names",
-        //             id: 1
-        //         },{
-        //             title: "title1",
-        //             abstract: "The examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property namesThe examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property names",
-        //             id: 1
-        //         },{
-        //             title: "title1",
-        //             abstract: "The examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property namesThe examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property names",
-        //             id: 1
-        //         },
-        //         ]
-        //     }
+        data() {
+            return {
+                articles: [
+                // {
+                //     title: "title1",
+                //     abstract: "The examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property namesThe examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property names",
+                //     id: 1
+                // },{
+                //     title: "title1",
+                //     abstract: "The examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property namesThe examples above focused on using variables to control values in CSS rules, but they can also be used in other places as well, such as selector names, property names",
+                //     id: 2
+                // }
+                ]
+            }
 
-        // },
+        },
         components: {
             myFooter,
             myHeader
         },
-        created: {
-
+        created() {
+            this.$http.get('/api/getArticleList').then((res) => {
+                this.articles = res.body;
+            }, (err) => {alert("getArticleList fail!")});
         }
     }
 </script>
