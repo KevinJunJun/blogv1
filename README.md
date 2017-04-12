@@ -23,6 +23,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 
 
+
 ## TODO 
 
 ### 功能上
@@ -32,8 +33,6 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 * 支持评论和回复
 * 支持后台管理员登陆
 
-
-
 ### 优化
 * 美化
 * 支持icon图标
@@ -41,3 +40,4 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 * 体验某个动画库
 * 适配移动端
 * 基本SEO友好
+
