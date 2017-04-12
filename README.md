@@ -1,6 +1,6 @@
 # blogv1
 
-> 使用 vue-cli、express、mongodb构建的博客平台
+> 使用 vue、vue-resource、vue-router、vue-cli、express、mongodb构建的博客平台
 
 ## Build Setup
 
