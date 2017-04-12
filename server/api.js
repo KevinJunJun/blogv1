@@ -1,9 +1,11 @@
 'use strict';
+const querystring = require('querystring');
+const url = require('url');
+const util = require('util');
 const express = require('express');
 const router = express.Router();
 const dbModels = require('./db.js');
-const querystring = require('querystring');
-const url = require('url');
+
 
 router.get('/api/getArticleList.json', (req, res) => {
     dbModels.Articles.find(null, 'title date content').sort({_id: -1}).exec(
@@ -43,7 +45,7 @@ router.post('/api/savePostingArticle.json', (req, res) => {
             if (err) {
                 console.error(err);
             } else {
-                console.log("save to DB =============  " + querystring.stringify(req.body));
+                console.log("save to DB =============  " + util.inspect(req.body));
                 res.status(200).json({ state: 1, message: "保存成功" });
             }
         });
