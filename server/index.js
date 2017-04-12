@@ -3,12 +3,14 @@ const fs = require('fs');
 const path = require('path');
 const morgan =  require('morgan');
 const express = require('express');
+const bodyParser = require('body-parser');
 const api = require('./api.js');
 const db = require('./db.js');
 const app = express();
 
-app.set('port', (process.env.port || 8888));
+app.set('port', (process.env.port || 8080));
 app.use(morgan('dev'));
+app.use(bodyParser.json());
 app.use('/static', express.static(path.resolve(__dirname,'../dist/static')));
 app.use(api);
 app.get('*', (req, res) => {

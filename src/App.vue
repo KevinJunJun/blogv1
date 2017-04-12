@@ -1,13 +1,21 @@
 <template>
   <div id="app">
+    <my-header></my-header>
     <router-view></router-view>
+    <my-footer></my-footer>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+    import myHeader from './components/common/myHeader.vue'
+    import myFooter from './components/common/myFooter.vue'
+    export default {
+      name: 'app',
+      components: {
+        myHeader,
+        myFooter
+      }
+    }
 </script>
 
 <style lang="less" rel="stylesheet/less">

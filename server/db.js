@@ -14,18 +14,18 @@ const connection = mongoose.connection;
 connection.on('error', (err) => {console.log(err);});
 connection.once('open', () => {
     console.log('database connected!');
-    let article = new Models.Articles({
-        title: "title 1 from db",
-        content: "content 1 from db",
-        date: Date.now()
-    });
-    article.save((err, article) => {
-        if(err) {
-            console.log(err);
-        } else {
-            console.log('save success!');
-        }
-    })
+    // let article = new Models.Articles({
+    //     title: "title 1 from db",
+    //     content: "content 1 from db",
+    //     date: Date.now()
+    // });
+    // article.save((err, article) => {
+    //     if(err) {
+    //         console.log(err);
+    //     } else {
+    //         console.log('save success!');
+    //     }
+    // })
 
 });
 

@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <my-header></my-header>
+        
             <div class="content">
                 <ul class="articles-ul">
 
@@ -14,13 +14,11 @@
                 </ul>
             </div>
 
-        <my-footer></my-footer>
     </div>
 </template>
 
 <script>
-    import myHeader from './common/myHeader.vue'
-    import myFooter from './common/myFooter.vue'
+
     export default {
         data() {
             return {
@@ -35,8 +33,7 @@
 
         },
         components: {
-            myFooter,
-            myHeader
+
         },
         created() {
             this.$http.get('/api/getArticleList.json').then((res) => {
@@ -48,9 +45,9 @@
 
 <style lang="less" rel="stylesheet/less" scoped>
     .content {
-        padding: 40px 0 80px;
+        padding: 40px 40px 80px;
         .articles-ul {
-            padding: 0 40px;
+           
             .article-li {
                 box-sizing: border-box;
                 margin-top: 20px;

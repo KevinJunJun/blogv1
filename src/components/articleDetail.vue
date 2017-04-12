@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <my-header></my-header>
+
         <div class="content">
             <h2 class="artitle-title">
                 {{artitle.title}}
@@ -9,13 +9,12 @@
                 {{artitle.content}}
             </div>
         </div>
-        <my-footer></my-footer>
+
     </div>
 </template>
 
 <script>
-    import myHeader from './common/myHeader.vue'
-    import myFooter from './common/myFooter.vue'
+
     export default {
         data() {
             return {
@@ -26,8 +25,7 @@
             }
         },
         components: {
-            myFooter,
-            myHeader
+
         },
         methods: {
             //这个时候就比较麻烦了，不能直接去获取之前缓存的artitleList,当然也可以直接向服务器端请求资源，这个就浪费服务端资源了,既然不用Vuex了就简单使用向服务端请求吧
@@ -37,6 +35,7 @@
                 }, (err) => {
                     alert("getArticleDetailById fail");
                 })
+                
             }
         },
         created() {
