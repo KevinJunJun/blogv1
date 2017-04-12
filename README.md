@@ -16,12 +16,9 @@ npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
-```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-
-
+# start the after-end express server
+npm run start 
 
 
 ## TODO 
@@ -40,4 +37,3 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 * 体验某个动画库
 * 适配移动端
 * 基本SEO友好
-
