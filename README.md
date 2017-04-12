@@ -17,7 +17,9 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 
+
 # start mongodb
+
 
 # start the after-end express server
 npm run start 
